@@ -1,5 +1,4 @@
-import numpy as np 
-from numpy.linalg import inv
+import numpy as np
 from matplotlib import pyplot as plt
 
 def F(t, x, y):
