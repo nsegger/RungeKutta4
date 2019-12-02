@@ -34,12 +34,7 @@ def RK4(x, y, h, t):
         pX.append(pX[i] + kx)
         pY.append(pY[i] + ky)
 
-    plt.plot(np.array(pX), np.arange(t), 'bo', np.array(pY), np.arange(t), 'ro')
-    plt.ylabel("Tempo")
-    plt.xlabel("x: azul, y: vermelho")
-    plt.axis([-10000, 50000, 0, t])
-    plt.grid(True)
-    plt.show()
+    return pX, pY
 
 
 def main():
@@ -48,10 +43,14 @@ def main():
     y = 2
     h = 1
 
-    RK4(x, y, h, t)
+    pX, pY = RK4(x, y, h, t)
 
-
-
+    plt.plot(np.array(pX), np.arange(t), 'bo', np.array(pY), np.arange(t), 'ro')
+    plt.ylabel("Tempo")
+    plt.xlabel("x: azul, y: vermelho")
+    plt.axis([-10000, 50000, 0, t])
+    plt.grid(True)
+    plt.show()
 
 if __name__ == "__main__":
     main()
