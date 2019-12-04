@@ -1,5 +1,4 @@
-import numpy as np 
-from numpy.linalg import inv
+import numpy as np
 from matplotlib import pyplot as plt
 
 def F(t, x, y):
@@ -34,6 +33,17 @@ def RK4(x, y, h, t):
         pX.append(pX[i] + kx)
         pY.append(pY[i] + ky)
 
+    return pX, pY
+
+
+def main():
+    t = 30
+    x = 1
+    y = 2
+    h = 1
+
+    pX, pY = RK4(x, y, h, t)
+
     plt.figure(1)
     plt.subplot(111)
     plt.plot(np.array(pX), np.arange(t), 'bo', np.array(pY), np.arange(t), 'ro')
@@ -50,18 +60,6 @@ def RK4(x, y, h, t):
     plt.grid(True)
 
     plt.show()
-
-
-def main():
-    t = 30
-    x = 1
-    y = 2
-    h = 1
-
-    RK4(x, y, h, t)
-
-
-
 
 if __name__ == "__main__":
     main()
